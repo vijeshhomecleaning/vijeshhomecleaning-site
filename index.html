@@ -641,22 +641,22 @@ Contact Area
                         </div>
                     </div>
                     <div class="col-xl-5">
-                        <form action="mail.php" method="POST" class="contact-form1 ajax-contact">
-                            <h3 class="form-title">Make Appoinment</h3>
+                        <form id="appointmentForm" class="contact-form1">
+                            <h3 class="form-title">Make Appointment</h3>
                             <div class="input-wrap">
                                 <div class="row">
                                     <div class="form-group col-12">
                                         <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="Your Name">
+                                            placeholder="Your Name" required>
                                         <i class="fal fa-user"></i>
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="phone" class="form-control" name="phone" id="phone"
-                                            placeholder="Phone Number">
-                                        <i class="fal fa-envelope"></i>
+                                        <input type="tel" class="form-control" name="phone" id="phone"
+                                            placeholder="Phone Number" required pattern="^[0-9+\-\s]{7,15}$">
+                                        <i class="fal fa-phone"></i>
                                     </div>
                                     <div class="form-group col-12">
-                                        <select name="subject" id="subject" class="form-select">
+                                        <select name="subject" id="subject" class="form-select" required>
                                             <option value="" disabled selected hidden>Choose Service</option>
                                             <option value="Full House Cleaning">Full House Cleaning</option>
                                             <option value="Kitchen Cleaning">Kitchen Cleaning</option>
@@ -670,19 +670,20 @@ Contact Area
                                     </div>
                                     <div class="form-group col-12">
                                         <input type="text" class="form-control" name="location" id="location"
-                                            placeholder="Location">
+                                            placeholder="Location (eg. Tambaram, Chennai)" required>
                                         <i class="fal fa-location-dot"></i>
                                     </div>
                                     <div class="form-btn col-12">
-                                        <button class="th-btn btn-fw">Submit<i
-                                                class="fas fa-arrow-up-right ms-2"></i></button>
+                                        <button type="submit" class="th-btn btn-fw">
+                                            Submit<i class="fas fa-arrow-up-right ms-2"></i>
+                                        </button>
                                     </div>
                                 </div>
-                                <p class="form-messages mb-0 mt-3"></p>
+                                <p class="form-messages mb-0 mt-3" id="formMessages"></p>
                             </div>
-
                         </form>
                     </div>
+
                 </div>
             </div>
 
@@ -706,7 +707,7 @@ Price Area
                             Costs</h2>
                     </div>
                 </div>
-                <div class="col-lg-auto mt-n3 mt-lg-0">
+                <!-- <div class="col-lg-auto mt-n3 mt-lg-0">
                     <div class="sec-btn">
                         <div class="nav price-tab" role="tablist">
                             <button class="th-btn" id="nav-one-tab" data-bs-toggle="tab" data-bs-target="#nav-one"
@@ -716,7 +717,7 @@ Price Area
                                 aria-selected="true">Yearly</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="tab-content">
                 <!-- Single item -->
