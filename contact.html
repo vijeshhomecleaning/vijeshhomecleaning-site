@@ -37,7 +37,9 @@
 	============================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!--==============================
 	    All CSS File
@@ -221,8 +223,10 @@
                     <div class="col-auto d-none d-lg-block">
                         <div class="header-links">
                             <ul>
-                                <li class="d-none d-sm-inline-block"><i class="fas fa-phone"></i><b>Phone:</b><a href="tel:+918838650663">+918838650663</a></li>
-                                <li class="d-none d-sm-inline-block"><i class="fas fa-envelope"></i><b>Email:</b><a href="mailto:info@vijeshhomecleaning.com">info@vijeshhomecleaning.com</a></li>
+                                <li class="d-none d-sm-inline-block"><i class="fas fa-phone"></i><b>Phone:</b><a
+                                        href="tel:+918838650663">+918838650663</a></li>
+                                <li class="d-none d-sm-inline-block"><i class="fas fa-envelope"></i><b>Email:</b><a
+                                        href="mailto:info@vijeshhomecleaning.com">info@vijeshhomecleaning.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -264,7 +268,8 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="home-house-cleaner.html"><img src="assets/img/logo.png" alt="Vijesh Home Cleaning"></a>
+                                <a href="home-house-cleaner.html"><img src="assets/img/logo.png"
+                                        alt="Vijesh Home Cleaning"></a>
                             </div>
                         </div>
                         <div class="col-auto d-none d-lg-inline-block">
@@ -328,8 +333,10 @@
                                     <span class="badge">5</span>
                                     <i class="far fa-cart-shopping"></i>
                                 </button> -->
-                                <a href="contact.html" class="th-btn">Contact Us<i class="fas fa-arrow-up-right ms-2"></i></a>
-                                <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
+                                <a href="contact.html" class="th-btn">Contact Us<i
+                                        class="fas fa-arrow-up-right ms-2"></i></a>
+                                <button type="button" class="th-menu-toggle d-block d-lg-none"><i
+                                        class="far fa-bars"></i></button>
                             </div>
                         </div>
                     </div>
@@ -360,7 +367,8 @@ Contact Info Area
                 <div class="col-xl-6 col-md-7">
                     <div class="title-area text-center">
                         <h2 class="sec-title">Contact Information</h2>
-                        <p class="sec-text">Cleaning services are typically certified by regulatory bodies to ensure they meet specific cleanliness and hygiene standards.</p>
+                        <p class="sec-text">Cleaning services are typically certified by regulatory bodies to ensure
+                            they meet specific cleanliness and hygiene standards.</p>
                     </div>
                 </div>
             </div>
@@ -423,33 +431,41 @@ Contact Area
 ==============================-->
     <div class="space-bottom">
         <div class="container">
-            <form action="mail.php" method="POST" class="team-contact-form input-white ajax-contact">
+            <form id="appointmentForm" class="team-contact-form input-white">
                 <h4 class="form-title">Make An Appointment</h4>
                 <div class="row">
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
+                        <input type="text" class="form-control" id="name" required placeholder="Your Name">
                         <i class="far fa-user"></i>
+                        <small class="text-danger" id="error-name"></small>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email Address">
-                        <i class="far fa-envelope"></i>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number">
+                        <input type="tel" class="form-control" name="number" id="number" required
+                            placeholder="Phone Number">
                         <i class="far fa-phone"></i>
+                        <small class="text-danger" id="error-phone"></small>
                     </div>
                     <div class="form-group col-sm-6">
-                        <select name="subject" id="subject" class="form-select">
-                            <option value="" disabled selected hidden>Choose Service</option>
-                            <option value="Home Cleaning">Home Cleaning</option>
-                            <option value="Window Cleaning">Window Cleaning</option>
+                        <input type="text" class="form-control" name="location" id="location" required
+                            placeholder="Your Location">
+                        <i class="far fa-location-dot"></i>
+                        <small class="text-danger" id="error-location"></small>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <select name="service" id="service" required class="form-select">
+                            <option value="">Choose Cleaning Service</option>
                             <option value="Bathroom Cleaning">Bathroom Cleaning</option>
+                            <option value="Home Cleaning">Home Cleaning</option>
+                            <option value="Kitchen Cleaning">Kitchen Cleaning</option>
                             <option value="Office Cleaning">Office Cleaning</option>
+                            <option value="Window Cleaning">Window Cleaning</option>
                         </select>
                         <i class="far fa-chevron-down"></i>
+                        <small class="text-danger" id="error-service"></small>
                     </div>
                     <div class="form-group col-12">
-                        <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Your Message"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="3" class="form-control"
+                            placeholder="Your Message"></textarea>
                         <i class="far fa-message"></i>
                     </div>
                     <div class="form-btn col-12 text-center">
@@ -471,8 +487,10 @@ Map Area
 	Footer Area
 ==============================-->
     <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer_bg_1.jpg">
-        <div class="shape-mockup movingX d-none d-xl-block" data-bottom="80px" data-left="0%"><img src="assets/img/shape/footer_shape_1.png" alt="shape"></div>
-        <div class="shape-mockup moving d-none d-xl-block" data-bottom="80px" data-right="5%"><img src="assets/img/shape/footer_shape_2.png" alt="shape"></div>
+        <div class="shape-mockup movingX d-none d-xl-block" data-bottom="80px" data-left="0%"><img
+                src="assets/img/shape/footer_shape_1.png" alt="shape"></div>
+        <div class="shape-mockup moving d-none d-xl-block" data-bottom="80px" data-right="5%"><img
+                src="assets/img/shape/footer_shape_2.png" alt="shape"></div>
         <div class="container">
             <div class="footer-top-wrap">
                 <div class="row gy-4 justify-content-between">
@@ -522,9 +540,12 @@ Map Area
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo">
-                                    <a href="home-house-cleaner.html"><img src="assets/img/logo-white.png" alt="Vijesh Home Cleaning"></a>
+                                    <a href="home-house-cleaner.html"><img src="assets/img/logo-white.png"
+                                            alt="Vijesh Home Cleaning"></a>
                                 </div>
-                                <p class="about-text">Vijesh Home Cleaning is your trusted cleaning company, committed to providing reliable and high-quality cleaning services for every type of home and requirement.</p>
+                                <p class="about-text">Vijesh Home Cleaning is your trusted cleaning company, committed
+                                    to providing reliable and high-quality cleaning services for every type of home and
+                                    requirement.</p>
                                 <!-- <div class="th-social">
                                     <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -587,7 +608,8 @@ Map Area
         </div>
         <div class="copyright-wrap">
             <div class="container text-center">
-                <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2025 <a href="home-house-cleaner.html">Vijesh Home Cleaning</a>. All Rights Reserved.</p>
+                <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2025 <a
+                        href="home-house-cleaner.html">Vijesh Home Cleaning</a>. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -599,11 +621,13 @@ Map Area
     <!-- Scroll To Top -->
     <div class="scroll-top">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
         </svg>
     </div>
 
-        <!-- Phone Icon -->
+    <!-- Phone Icon -->
     <div class="floating-pill-wrapper">
         <a href="tel:+918838650663" class="pill-btn phone-pill">
             <span>📞</span> Call Us
@@ -640,6 +664,79 @@ Map Area
 
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            document.querySelectorAll(".text-danger").forEach(el => el.innerText = "");
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("number").value.trim();
+            const location = document.getElementById("location").value.trim();
+            const service = document.getElementById("service").value;
+            const message = document.getElementById("message").value.trim();
+
+            let hasError = false;
+
+            const phoneRegex = /^[6-9]\d{9}$/;
+
+            if (!name) {
+                document.getElementById("error-name").innerText = "Name is required";
+                hasError = true;
+            }
+
+            if (!phone) {
+                document.getElementById("error-phone").innerText = "Phone number is required";
+                hasError = true;
+            } else if (!phoneRegex.test(phone)) {
+                document.getElementById("error-phone").innerText = "Enter a valid 10-digit mobile number";
+                hasError = true;
+            }
+
+            if (!location) {
+                document.getElementById("error-location").innerText = "Location is required";
+                hasError = true;
+            }
+
+            if (!service) {
+                document.getElementById("error-service").innerText = "Please select a service";
+                hasError = true;
+            }
+
+            if (!message) {
+                document.getElementById("error-message").innerText = "Message is required";
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            const payload = {
+                name,
+                phone,
+                location,
+                service,
+                message
+            };
+
+            fetch("https://hook.eu1.make.com/nnn2opwv8k44vs7fbkr4683xulli6rpw", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(() => {
+                    alert("✅ Appointment request sent!");
+                    document.getElementById("appointmentForm").reset();
+                })
+                .catch(() => {
+                    alert("❌ Failed to send request. Try again.");
+                });
+        });
+    </script>
+
+
 </body>
 
 </html>

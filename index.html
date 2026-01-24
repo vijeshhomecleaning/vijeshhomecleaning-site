@@ -641,22 +641,32 @@ Contact Area
                         </div>
                     </div>
                     <div class="col-xl-5">
-                        <form id="appointmentForm" class="contact-form1">
+                        <form id="appointmentForm" class="contact-form1" action="javascript:void(0);">
+
                             <h3 class="form-title">Make Appointment</h3>
+
                             <div class="input-wrap">
                                 <div class="row">
+
+                                    <!-- Name -->
                                     <div class="form-group col-12">
-                                        <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="Your Name" required>
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name"
+                                            required>
+                                        <small class="text-danger" id="error-name"></small>
                                         <i class="fal fa-user"></i>
                                     </div>
+
+                                    <!-- Phone -->
                                     <div class="form-group col-12">
-                                        <input type="tel" class="form-control" name="phone" id="phone"
-                                            placeholder="Phone Number" required pattern="^[0-9+\-\s]{7,15}$">
+                                        <input type="tel" class="form-control" id="phone" placeholder="Phone Number"
+                                            required pattern="^[6-9][0-9]{9}$">
+                                        <small class="text-danger" id="error-phone"></small>
                                         <i class="fal fa-phone"></i>
                                     </div>
+
+                                    <!-- Service -->
                                     <div class="form-group col-12">
-                                        <select name="subject" id="subject" class="form-select" required>
+                                        <select id="subject" class="form-select" required>
                                             <option value="" disabled selected hidden>Choose Service</option>
                                             <option value="Full House Cleaning">Full House Cleaning</option>
                                             <option value="Kitchen Cleaning">Kitchen Cleaning</option>
@@ -666,22 +676,32 @@ Contact Area
                                             <option value="Sofa Cleaning">Sofa Cleaning</option>
                                             <option value="Carpet Cleaning">Carpet Cleaning</option>
                                         </select>
+                                        <small class="text-danger" id="error-subject"></small>
                                         <i class="fal fa-chevron-down"></i>
                                     </div>
+
+                                    <!-- Location -->
                                     <div class="form-group col-12">
-                                        <input type="text" class="form-control" name="location" id="location"
+                                        <input type="text" class="form-control" id="location"
                                             placeholder="Location (eg. Tambaram, Chennai)" required>
+                                        <small class="text-danger" id="error-location"></small>
                                         <i class="fal fa-location-dot"></i>
                                     </div>
+
+                                    <!-- Submit -->
                                     <div class="form-btn col-12">
                                         <button type="submit" class="th-btn btn-fw">
-                                            Submit<i class="fas fa-arrow-up-right ms-2"></i>
+                                            Submit <i class="fas fa-arrow-up-right ms-2"></i>
                                         </button>
                                     </div>
+
                                 </div>
-                                <p class="form-messages mb-0 mt-3" id="formMessages"></p>
+
+                                <!-- Global message -->
+                                <p class="form-messages mb-0 mt-3" id="formMessages">dg</p>
                             </div>
                         </form>
+
                     </div>
 
                 </div>
@@ -1464,6 +1484,81 @@ Brand Area
 
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("appointmentForm");
+
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        e.stopPropagation(); // 🔥 stops other scripts
+
+        // Clear errors
+        document.querySelectorAll(".text-danger").forEach(el => el.innerText = "");
+        const formMsg = document.getElementById("formMessages");
+        formMsg.innerText = "";
+        formMsg.className = "form-messages mb-0 mt-3";
+
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const subject = document.getElementById("subject").value;
+        const location = document.getElementById("location").value.trim();
+
+        let hasError = false;
+        const phoneRegex = /^[6-9][0-9]{9}$/;
+
+        if (!name) {
+            document.getElementById("error-name").innerText = "Name is required";
+            hasError = true;
+        }
+
+        if (!phone) {
+            document.getElementById("error-phone").innerText = "Phone number is required";
+            hasError = true;
+        } else if (!phoneRegex.test(phone)) {
+            document.getElementById("error-phone").innerText = "Enter valid 10-digit mobile number";
+            hasError = true;
+        }
+
+        if (!subject) {
+            document.getElementById("error-subject").innerText = "Please select a service";
+            hasError = true;
+        }
+
+        if (!location) {
+            document.getElementById("error-location").innerText = "Location is required";
+            hasError = true;
+        }
+
+        if (hasError) return;
+
+        fetch("https://hook.eu1.make.com/nnn2opwv8k44vs7fbkr4683xulli6rpw", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name,
+                phone,
+                service: subject,
+                location
+            })
+        })
+        .then(() => {
+            formMsg.innerText = "✅ Appointment request sent successfully!";
+            formMsg.classList.add("success");
+            form.reset();
+        })
+        .catch(() => {
+            formMsg.innerText = "❌ Failed to send request. Please try again.";
+            formMsg.classList.add("error");
+        });
+    });
+});
+</script>
+
+
 </body>
 
 </html>
