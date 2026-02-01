@@ -15566,3 +15566,64 @@ span.select2-selection.select2-selection--single:focus {
         border-radius: 26px;
     }
 }
+
+/* // Manual */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.box-img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.box-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.box-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.service-points {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: #555;
+}
+
+.price-badge {
+    margin-top: auto;
+    color: #1a7f37;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.price-badge small {
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.slider-arrow {
+    background: #1a7f37;
+    color: #fff;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+}
